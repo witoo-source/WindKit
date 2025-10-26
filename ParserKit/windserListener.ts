@@ -7,10 +7,10 @@ import { RootContext } from "./windser";
 import { BlockContext } from "./windser";
 import { PropertiesDeclContext } from "./windser";
 import { StateDeclContext } from "./windser";
-import { ComponentDeclContext } from "./windser";
 import { ElementsDeclContext } from "./windser";
 import { ChangeStateDeclContext } from "./windser";
 import { CondicionalReprDeclContext } from "./windser";
+import { ComponentDeclContext } from "./windser";
 
 
 /**
@@ -59,16 +59,6 @@ export default class windserListener extends ParseTreeListener {
 	 */
 	exitStateDecl?: (ctx: StateDeclContext) => void;
 	/**
-	 * Enter a parse tree produced by `windser.componentDecl`.
-	 * @param ctx the parse tree
-	 */
-	enterComponentDecl?: (ctx: ComponentDeclContext) => void;
-	/**
-	 * Exit a parse tree produced by `windser.componentDecl`.
-	 * @param ctx the parse tree
-	 */
-	exitComponentDecl?: (ctx: ComponentDeclContext) => void;
-	/**
 	 * Enter a parse tree produced by `windser.elementsDecl`.
 	 * @param ctx the parse tree
 	 */
@@ -98,5 +88,15 @@ export default class windserListener extends ParseTreeListener {
 	 * @param ctx the parse tree
 	 */
 	exitCondicionalReprDecl?: (ctx: CondicionalReprDeclContext) => void;
+	/**
+	 * Enter a parse tree produced by `windser.componentDecl`.
+	 * @param ctx the parse tree
+	 */
+	enterComponentDecl?: (ctx: ComponentDeclContext) => void;
+	/**
+	 * Exit a parse tree produced by `windser.componentDecl`.
+	 * @param ctx the parse tree
+	 */
+	exitComponentDecl?: (ctx: ComponentDeclContext) => void;
 }
 

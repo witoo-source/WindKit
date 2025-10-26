@@ -10,12 +10,13 @@ root
 
 
 block
-    : LBRACE (block | .)*? RBRACE
+    : LBRACE (propertiesDecl | stateDecl | componentDecl | elementsDecl | changeStateDecl | condicionalReprDecl | .)*? RBRACE
     ;
+
 
 propertiesDecl: PROPKEYWORD block;
 stateDecl: STATEKEYWORD block ;
-componentDecl: COMPONENTKEYWORD ID block ;
-elementsDecl: ID LPAREN (ID | STRING) RPAREN block?;
-changeStateDecl: DASHCOND LPAREN ID RPAREN ;
+elementsDecl: ID LPAREN (ID | STRING) RPAREN STYLEDECL? block?;
+changeStateDecl: DASHCOND LPAREN (ID | STRING)? RPAREN ;
 condicionalReprDecl: CONDREPRKEYWORD block;
+componentDecl: COMPONENTKEYWORD ID LBRACE (elementsDecl | changeStateDecl | condicionalReprDecl)* RBRACE;
